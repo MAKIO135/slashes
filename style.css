@@ -1,0 +1,18 @@
+@media screen and (min-width: 576px){
+    .modal-dialog {
+        max-width: 590px;
+        margin: 1.75rem auto;
+    }
+}
+
+body {
+    background: #fcfcfc;
+}
+
+#gallery .row {
+    margin-top: 10px;
+}
+
+.card {
+    margin-top: 10px;
+}

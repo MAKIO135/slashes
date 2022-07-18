@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Slashes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container-fluid bg-image" style="background:#202020; background-image:url(https://makio135.com/slashes-exports/png/2.png); background-repeat: no-repeat; background-size: cover; background-position:center center; height:100vh;display: flex; justify-content: center; align-items: center; margin-bottom: 50px">
+    <div class="container" style="color: #fff">
+      <h1 style="font-size:3.5rem;font-weight:bold;">Slashes</h1>
+      
+      <p style="font-size:1.5rem">
+        A generative art collection of 1024 unique pieces<br>
+        by <a href="https://twitter.com/makio135" target="_blank" class="text-white">makio135</a> and <a href="https://twitter.com/clemsos" target="_blank" class="text-white">clemsos</a>.
+      </p>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h2>About Slashes</h2>
+
+    <div class="alert alert-primary" role="alert"  style="margin:30px 0;">
+      <p>
+        <strong>
+          You can now upgrade your Slashes tokens to v2 as part of <a href="https://makio135.com/shapes2048" target="_blank">Shapes2048</a>.
+        </strong>
+      </p>
+
+      <p>
+        The idea behind Shapes2048 is to create a meta collection: a single smart contract using multiple generative art generators, and to allow owners to change their tokens by hunting for new seeds or change to another shape like SlashesV2/Arcs/…  against a 0.01ETH fee (all previous states are kept in metadata of the token), or also lock the token in a final form.
+      </p>
+
+      <p>
+        There is absolutely no obligation to upgrade your SLASHES tokens, if you love them this way keep them ♥️<br>
+        But if you want to join this new series, get brand new tokens with new visuals, hunt for gems and participate in shaping this project, upgrade your SLASHES 🚀
+      </p>
+
+      <p>
+        <a href="https://makio135.com/slashes-v2">UPGRADE NOW</a>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <p style="margin: 1.5em 0;">
+          The Slashes series proposes an abstract vision of the paths we take and the people we encounter throughout our lives. Each piece is a unique path we take, and each path we take is a unique piece.
+        </p>
+
+        <p style="margin: 1.5em 0;">
+          This work is the result of a collaboration between <a href="https://twitter.com/makio135" target="_blank">makio135</a>, generative artist, and <a href="https://twitter.com/clemsos" target="_blank">clemsos</a>, researcher.
+        </p>
+
+        <p style="margin: 1.5em 0;">
+          Each token is the deterministic result of our <a href="https://etherscan.io/address/0xdc2ff59fd1ec4a2b5af53fc0cd73af2f59e3da96#code">custom Solidity smart-contract</a>, allowing the generation on on-chain using the Ethereum Virtual Machine: the smart-contract is used as a medium to output SVGs.<br>
+        </p>
+      </div>
+      
+      <div class="col-md-6 col-sm-12">
+        <p style="margin: 1.5em 0;">
+          Due to the limitations of the Solidity language (Floats inexisting, Strings manipulation, gas), many tricks have been developed to generate clean and unique SVGs efficiently, like abusing the <code>&lt;use&gt;</code> SVG element to limit computations and reuse shapes to draw them again with transformations, recreating a PRNG algorithm seeded by the token ID to get a nice diversity in the generated outputs and using a <a href="https://medium.com/cryptodevopsacademy/solidity-the-pure-getter-and-view-functions-281bff8fde23" target="_blank">Solidity pure view function</a> that takes a token ID as parameter and computes the result directly in-chain to reduce gas fees.
+        </p>
+
+        <p style="margin: 1.5em 0;">
+          You can visit the <a href="https://opensea.io/collection/slashes" target="_blank">OpenSea marketplace</a> to purchase the Slashes tokens.
+        </p>
+    </div>
+
+    <hr style="margin: 50px 10%; width:80%">
+
+    <h2>Features</h2>
+
+    <p>
+      Each token is the combination of 11 features that determine the visual aspects of the piece:
+    </p>
+
+    <ul>
+      <li><strong>Palette ID</strong>: The color palette used to generate the piece.</li>
+      <li><strong>Background Opacity</strong>: Wider slashes in the background are drawn with an opacity of 0.2 to 0.8.</li>
+      <li><strong>Gradients / 1000</strong>: The probability of drawing a gradient filled slash out of 1000. The gradient is drawn with a random color from the palette.</li>
+      <li><strong>X Direction Force</strong>: Variation of slashes direction along the horizontal axis.</li>
+      <li><strong>Y Direction Force</strong>: Variation of slashes direction along the vertical axis.</li>
+      <li><strong>Wider Shapes / 1000</strong>: The probability of slashes with a large stroke width.</li>
+      <li><strong>Complexity Level</strong>: The amount of slashes to be drawn.</li>
+      <li><strong>Shape Type</strong>: The type of the central shape, can be either Rectangle, Circle or Diamond.</li>
+      <li><strong>Shape StrokeWidth</strong>: The thickness of the center shape stroke, can be 10, 20, 40, 80 or 160.</li>
+      <li><strong>Shape Filled</strong>: A boolean value defining if the central shape is filled.</li>
+      <li><strong>Scales</strong>: Slashes are drawn twice on the foreground using a 180° rotation and different scales. The "1 | 1,-1" value defines a vertical symmetry.</li>
+    </ul>
+    
+    <hr style="margin: 50px 10%; width:80%">
+    
+    <h2>Tokens</h2>
+    
+    <div id="gallery"></div>
+    
+    <div class="modal fade" id="slashModal" tabindex="-1" aria-labelledby="slashModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="slashModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          
+          <div class="modal-body"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+</body>
+</html>
